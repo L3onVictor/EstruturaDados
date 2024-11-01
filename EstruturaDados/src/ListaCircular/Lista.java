@@ -47,43 +47,33 @@ public class Lista {
 			System.out.println("Lista vazia");
 			return;
 		}
-		
-		if(info == ref.getValor()) {
-			if(ref == ref.getProx()) {
-				ref = null;
-				return;
-			}
-			No aux = ref.getProx();
-			No ant = ref;
-			
-			while(ant.getProx() != ref) {
-				ant = ant.getProx();
-			}
-				ant.setProx(aux);
-				ref = ant;
-			}
-		
-		No auxAnt = ref;
-		No auxAtual = ref.getProx();
-		boolean find = false;
-		
-		while(auxAtual != ref) {
-			if (info == auxAtual.getValor()) {
-				auxAnt.setProx(auxAtual.getProx());
-				find = true;
-				if (!duplicados) {
-					return;
-				} 
-			}else {
-					auxAnt = auxAtual;
-				}
-			auxAtual = auxAtual.getProx();
-				
-			}
-		if (!find) {
-			System.out.println("Resultado não encontrado");
+
+		if (ref == ref.getProx() && info == ref.getValor()) {
+			ref = null;
 			return;
 		}
+
+		No auxAnt = ref;
+		No aux = ref.getProx();
+		
+		while (aux != ref) {
+
+			if (info == aux.getValor()) {
+
+				auxAnt.setProx(aux.getProx());
+			if(!duplicados) {
+				return;
+			}
+	}else {
+			auxAnt = aux;
+		}
+			aux = aux.getProx();
+		}
+
+		if (info == ref.getValor()) {
+	        auxAnt.setProx(ref.getProx());
+	        ref = auxAnt;
+	    }
 	}
 
 	public String imprime() {
