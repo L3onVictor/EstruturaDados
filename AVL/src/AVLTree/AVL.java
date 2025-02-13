@@ -3,6 +3,14 @@ package AVLTree;
 public class AVL {
 	No raiz;
 
+	public AVL() {
+		this.raiz =null;
+	}
+	
+	public AVL(int info) {
+		this.raiz = new No(info);
+	}
+	
 	public int altura(No n) {
 		if (n == null) {
 			return 0;
