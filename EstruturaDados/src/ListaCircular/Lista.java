@@ -44,12 +44,7 @@ public class Lista {
 
 	public void remove(int info, boolean duplicados) {
 		if (listaVazia()) {
-			System.out.println("Lista vazia");
-			return;
-		}
-
-		if (ref == ref.getProx() && info == ref.getValor()) {
-			ref = null;
+			System.out.println("lista vazia");
 			return;
 		}
 
@@ -74,6 +69,10 @@ public class Lista {
 	        auxAnt.setProx(ref.getProx());
 	        ref = auxAnt;
 	    }
+		
+		if(ref == ref.getProx() && info == ref.getValor()) {
+			this.ref = null;
+		}
 	}
 
 	public String imprime() {
